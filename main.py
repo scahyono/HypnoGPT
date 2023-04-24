@@ -1,11 +1,12 @@
 # ask the user for a topic
 from playsound import playsound
 from gtts import gTTS
+from dotenv import load_dotenv
 import os
 import openai
 
-# Set up the OpenAI API key
-os.environ['OPENAI_API_KEY'] = ""
+# Read API key from .env file
+load_dotenv()
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Ask the user for a topic
@@ -43,10 +44,7 @@ language = 'en'
 tts = gTTS(text=text, lang=language, slow=True)
 
 # Save the audio file
-tts.save(topic + '.mp3')
-
-# Save the audio file
-#tts.save(topic + '.wav')
+tts.save('out/' + topic + '.mp3')
 
 # Play the audio file
-playsound(topic + '.mp3')
+playsound('out/' + topic + '.mp3')
