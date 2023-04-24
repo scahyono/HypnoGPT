@@ -22,7 +22,7 @@ The Hypnotherapy Script Generator App is a python script that allows users to ge
 
 ## Getting Started
 
-1. Clone the repository.
+1. Clone the repository
 2. Install the dependencies 
 3. Edit the key 
 4. Start the script
