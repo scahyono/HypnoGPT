@@ -1,13 +1,16 @@
-# ask the user for a topic
+# install requirements
+# pip install -r requirements.txt
+
 from playsound import playsound
-from gtts import gTTS
 from dotenv import load_dotenv
+import elevenlabs 
 import os
 import openai
 
 # Read API key from .env file
 load_dotenv()
 openai.api_key = os.environ["OPENAI_API_KEY"]
+elevenlabs.set_api_key(os.environ["ELEVENLABS_API_KEY"])
 
 # Ask the user for a topic
 topic = input("What is your topic? ")
@@ -40,11 +43,11 @@ print(text)
 # Language code
 language = 'en'
 
-# Create a gTTS object and set language
-tts = gTTS(text=text, lang=language, slow=True)
+# Generate the audio
+audio = elevenlabs.generate(text)
 
 # Save the audio file
-tts.save('out/' + topic + '.mp3')
+elevenlabs.save(audio, 'out/' + topic + '.mp3')
 
 # Play the audio file
 playsound('out/' + topic + '.mp3')
