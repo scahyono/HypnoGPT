@@ -5,7 +5,7 @@ import os
 import openai
 
 # Set up the OpenAI API key
-os.environ['OPENAI_API_KEY'] = "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"
+os.environ['OPENAI_API_KEY'] = ""
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Ask the user for a topic
