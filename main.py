@@ -15,8 +15,8 @@ elevenlabs.set_api_key(os.environ["ELEVENLABS_API_KEY"])
 # Ask the user for a topic
 topic = input("What is your topic? ")
 
-# Set up the prompt
-prompt = "Generate a hypnotherapy script to help with " + topic + ".\n\n"
+# Set up the prompt limit to 50 words to save cost
+prompt = "Limit the result in maximum 50 words, generate a self hypnotherapy script I can listen to help me with " + topic + ".\n\n"
 
 # Set up the completions parameters
 model_engine = "text-davinci-002"
@@ -39,6 +39,7 @@ text = "".join([choice.text for choice in response.choices])
 
 # Print the generated script
 print(text)
+print("Generating audio...")
 
 # Language code
 language = 'en'
